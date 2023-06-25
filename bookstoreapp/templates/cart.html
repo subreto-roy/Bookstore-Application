@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Cart</title>
+<link href="{% static 'style.css' %}" rel="stylesheet" />
+</head>
+<body>
+
+<div id="templatemo_container">
+	<div id="templatemo_menu">
+    	<ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">Books</a></li>            
+            <li><a href="#">New Releases</a></li>  
+            <li><a href="#">Company</a></li> 
+            <li><a href="#">Contact</a></li>
+    	</ul>
+    </div>
+    
+    <div id="templatemo_content">
+    	<div id="templatemo_content_left">
+        	<div class="templatemo_content_left_section">
+            	<h1>Categories</h1>
+                <ul>
+                    <li><a href="#">Applied English Grammar and Composition</a></li>
+                    <li><a href="#">105 Stories and Fables that Illumine, Delight, and Inform</a></li>
+            	</ul>
+            </div>
+        </div> 
+    
+        <div id="templatemo_content_right">
+            <h1>Cart</h1>
+            <div class="cart-items">
+                {% for book in books %}
+                <div class="cart-row">
+                    <div class="cart-item">
+                        <img class="cart-item-image" src="{{ book.image.url }}" alt="{{ book.title }}" width="100" height="100">
+                        <span class="cart-item-title">{{ book.title }}</span>
+                    </div>
+                    <span class="cart-price">${{ book.price }}</span>
+                </div>
+                {% empty %}
+                <p>Your cart is empty.</p>
+                {% endfor %}
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">${{ total_price }}</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
