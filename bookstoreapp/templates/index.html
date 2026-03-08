@@ -12,6 +12,494 @@
         .shop-item-id {
             display: none;
         }
+
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+        .book-list-section {
+            background: #0d0d0d;
+            padding: 60px 40px;
+            min-height: 100vh;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .book-list-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .book-list-eyebrow {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #c9a84c;
+            margin-bottom: 12px;
+        }
+
+        .book-list-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            color: #f5f0e8;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+        }
+
+        .book-list-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+            margin: 0 auto;
+        }
+
+        /* Grid */
+        .shop-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Card */
+        .shop-item {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .shop-item:hover {
+            transform: translateY(-6px);
+            border-color: #c9a84c44;
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Image */
+        .shop-item-image-wrap {
+            position: relative;
+            height: 240px;
+            background: #1e1e1e;
+            overflow: hidden;
+        }
+
+        .shop-item-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .shop-item:hover .shop-item-image {
+            transform: scale(1.05);
+        }
+
+        .shop-item-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            background: linear-gradient(135deg, #1a1a1a, #222);
+        }
+
+        /* Hover overlay button */
+        .shop-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .shop-item:hover .shop-item-overlay {
+            opacity: 1;
+        }
+
+        .btn-add {
+            background: #c9a84c;
+            color: #0d0d0d;
+            border: none;
+            padding: 12px 24px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-add:hover {
+            background: #e0bc68;
+            transform: scale(1.04);
+        }
+
+        /* Info */
+        .shop-item-info {
+            padding: 20px 22px 22px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .shop-item-author {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #c9a84c;
+            margin-bottom: 8px;
+        }
+
+        .shop-item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #f5f0e8;
+            margin: 0 0 10px 0;
+            line-height: 1.3;
+        }
+
+        .shop-item-desc {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.7;
+            margin: 0 0 auto 0;
+            padding-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Footer */
+        .shop-item-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #2a2a2a;
+            padding-top: 16px;
+            margin-top: 16px;
+        }
+
+        .shop-item-price {
+            font-size: 22px;
+            color: #f5f0e8;
+            font-weight: 300;
+        }
+
+        .shop-item-price strong {
+            font-weight: 600;
+        }
+
+        .btn-add-mobile {
+            background: transparent;
+            border: 1px solid #c9a84c;
+            color: #c9a84c;
+            padding: 8px 16px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .btn-add-mobile:hover {
+            background: #c9a84c;
+            color: #0d0d0d;
+        }
+
+        /* Empty state */
+        .no-books {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 20px;
+            color: #555;
+        }
+
+        .no-books span {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .no-books p {
+            font-size: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .book-list-title {
+                font-size: 36px;
+            }
+
+            .book-list-section {
+                padding: 40px 20px;
+            }
+
+            .btn-add-mobile {
+                display: none;
+            }
+        }
+
+        .cart-section {
+            background: #111111;
+            border: 1px solid #2a2a2a;
+            border-radius: 4px;
+            padding: 48px 40px;
+            max-width: 1200px;
+            margin: 40px auto;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* Header */
+        .cart-header-block {
+            margin-bottom: 36px;
+        }
+
+        .cart-eyebrow {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #c9a84c;
+            margin-bottom: 10px;
+        }
+
+        .cart-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            color: #f5f0e8;
+            margin: 0 0 16px 0;
+        }
+
+        .cart-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+        }
+
+        /* Table */
+        .cart-table {
+            width: 100%;
+            border: 1px solid #2a2a2a;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .cart-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.2fr;
+            align-items: center;
+            padding: 16px 24px;
+            border-bottom: 1px solid #1e1e1e;
+            transition: background 0.2s;
+        }
+
+        .cart-row:last-child {
+            border-bottom: none;
+        }
+
+        .cart-head-row {
+            background: #1a1a1a;
+            padding: 14px 24px;
+        }
+
+        .cart-col {
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        /* Cart Items (dynamic rows) */
+        .cart-items .cart-row {
+            background: #161616;
+        }
+
+        .cart-items .cart-row:hover {
+            background: #1c1c1c;
+        }
+
+        /* Item column */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .cart-item-image {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            border-radius: 2px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .cart-item-title {
+            font-size: 14px;
+            color: #f5f0e8;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* Price */
+        .cart-price {
+            font-size: 16px;
+            color: #c9a84c;
+            font-weight: 500;
+        }
+
+        /* Quantity column */
+        .cart-quantity {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-quantity-input {
+            width: 56px;
+            background: #0d0d0d;
+            border: 1px solid #2a2a2a;
+            color: #f5f0e8;
+            padding: 8px 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            border-radius: 2px;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+
+        .cart-quantity-input:focus {
+            outline: none;
+            border-color: #c9a84c;
+        }
+
+        .btn-danger {
+            background: transparent;
+            border: 1px solid #3a2020;
+            color: #c0392b;
+            padding: 8px 14px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+            color: #fff;
+            border-color: #c0392b;
+        }
+
+        /* Footer */
+        .cart-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #2a2a2a;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .cart-total {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .cart-total-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        .cart-total-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #f5f0e8;
+            font-weight: 600;
+        }
+
+        /* Purchase button */
+        .btn-purchase {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #c9a84c;
+            color: #0d0d0d;
+            border: none;
+            padding: 16px 36px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-purchase:hover {
+            background: #e0bc68;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.25);
+        }
+
+        .btn-purchase:active {
+            transform: translateY(0);
+        }
+
+        /* Empty cart */
+        .cart-items:empty::after {
+            content: 'Your cart is empty.';
+            display: block;
+            text-align: center;
+            padding: 48px 24px;
+            color: #444;
+            font-size: 14px;
+            letter-spacing: 1px;
+            background: #161616;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .cart-section {
+                padding: 32px 20px;
+            }
+
+            .cart-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .cart-head-row {
+                display: none;
+            }
+
+            .cart-title {
+                font-size: 30px;
+            }
+
+            .cart-total-price {
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 
@@ -32,16 +520,13 @@
         <div id="templatemo_header">
             <div id="templatemo_special_offers">
                 <p>
-                    <span>25%</span> discounts for
-                    purchase over $ 40
+                    <span>25%</span> discounts for purchase over $40
                 </p>
                 <a href="#" style="margin-left: 50px;">Read more...</a>
             </div>
 
-
             <div id="templatemo_new_books">
                 <ul>
-
                     <li><a href="">105 Stories..</a></li>
                 </ul>
                 <a href="#" style="margin-left: 50px;">Read more...</a>
@@ -54,167 +539,185 @@
                 <div class="templatemo_content_left_section">
                     <h1>Categories</h1>
                     <ul>
-                        <li><a href="#">Applied English Grammar and Composition</a></li>
-                        <li><a href="">105 Stories and Fables that Illumine, Delight, and Inform</a></li>
+                        {% for book in books %}
+                        <li><a href="#">{{ book.title }}</a></li>
+                        {% empty %}
+                        <li>No books available.</li>
+                        {% endfor %}
                     </ul>
                 </div>
-
-
-
             </div>
-            <section class="container content-section">
+
+            <section class="book-list-section">
+                <div class="book-list-header">
+                    <span class="book-list-eyebrow">Our Collection</span>
+                    <h1 class="book-list-title">Book List</h1>
+                    <div class="book-list-divider"></div>
+                </div>
 
                 <div class="shop-items">
+                    {% for book in books %}
                     <div class="shop-item">
-                        <div id="templatemo_content_right">
-
-                            <h1>Book List</h1>
-
-                            <ul>
-                                {% for book in books %}
-                                <div>
-                                    <h2 class="shop-item-id">{{ book.id }}</h2>
-
-                                    <h2 class="shop-item-title">{{ book.title }}</h2>
-                                    <p style="color: aqua;">Author: {{ book.author }}</p>
-                                    <p>Description: {{ book.description }}</p>
-                                    <p style="color: rgb(24, 165, 130);" class="shop-item-price">Price: ${{ book.price
-                                        }}</p>
-                                    {% if book.image %}
-                                    <img class="shop-item-image" src="{{ book.image.url }}" alt="{{ book.title }}"
-                                        width="200" height="200">
-                                    {% endif %}
-
-
-                                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                                </div>
-                                <hr>
-                                {% empty %}
-                                <p>No books available.</p>
-                                {% endfor %}
-                            </ul>
-
+                        <div class="shop-item-image-wrap">
+                            {% if book.image %}
+                            <img class="shop-item-image" src="{{ book.image.url }}" alt="{{ book.title }}">
+                            {% else %}
+                            <div class="shop-item-image-placeholder">📖</div>
+                            {% endif %}
+                            <div class="shop-item-overlay">
+                                <button class="btn-add shop-item-button" type="button">+ ADD TO CART</button>
+                            </div>
                         </div>
-
-                        <div class="cleaner_with_height">&nbsp;</div>
+                        <div class="shop-item-info">
+                            <h2 class="shop-item-id" style="display:none;">{{ book.id }}</h2>
+                            <span class="shop-item-author">{{ book.author }}</span>
+                            <h2 class="shop-item-title">{{ book.title }}</h2>
+                            <p class="shop-item-desc">{{ book.description }}</p>
+                            <div class="shop-item-footer">
+                                <span class="shop-item-price">$<strong>{{ book.price }}</strong></span>
+                                <button class="btn-add-mobile shop-item-button" type="button">Add to Cart</button>
+                            </div>
+                        </div>
                     </div>
+                    {% empty %}
+                    <div class="no-books">
+                        <span>📚</span>
+                        <p>No books available yet.</p>
+                    </div>
+                    {% endfor %}
                 </div>
-        </div>
-        </section>
-        <section style="background-color: #f2f2f2;" class="container content-section">
-            <h2>CART</h2>
-            <div class="cart-row">
-                <span class="cart-item cart-header cart-column">ITEM</span>
-                <span class="cart-price cart-header cart-column">PRICE</span>
-                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
-            </div>
-            <div class="cart-items">
-            </div>
-            <div class="cart-total">
+            </section>
 
-            </div>
-            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
-        </section>
+
+
+            <section class="cart-section">
+                <div class="cart-header-block">
+                    <span class="cart-eyebrow">Your Selection</span>
+                    <h2 class="cart-title">Cart</h2>
+                    <div class="cart-divider"></div>
+                </div>
+
+                <div class="cart-table">
+                    <div class="cart-row cart-head-row">
+                        <span class="cart-col cart-col-item">ITEM</span>
+                        <span class="cart-col cart-col-price">PRICE</span>
+                        <span class="cart-col cart-col-quantity">QUANTITY</span>
+                    </div>
+                    <div class="cart-items"></div>
+                </div>
+
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <span class="cart-total-label">Total</span>
+                        <span class="cart-total-price">$0</span>
+                    </div>
+                    <button class="btn-purchase" type="button">
+                        <span>PURCHASE</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+        </div>
     </div>
 
     <script>
-        if (document.readyState == 'loading') {
+        if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', ready)
         } else {
             ready()
         }
 
         function ready() {
-            var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+            var removeCartItemButtons = document.getElementsByClassName('btn-danger');
             for (var i = 0; i < removeCartItemButtons.length; i++) {
-                var button = removeCartItemButtons[i]
-                button.addEventListener('click', removeCartItem)
+                removeCartItemButtons[i].addEventListener('click', removeCartItem);
             }
 
-            var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+            var quantityInputs = document.getElementsByClassName('cart-quantity-input');
             for (var i = 0; i < quantityInputs.length; i++) {
-                var input = quantityInputs[i]
-                input.addEventListener('change', quantityChanged)
+                quantityInputs[i].addEventListener('change', quantityChanged);
             }
 
-            var addToCartButtons = document.getElementsByClassName('shop-item-button')
+            var addToCartButtons = document.getElementsByClassName('shop-item-button');
             for (var i = 0; i < addToCartButtons.length; i++) {
-                var button = addToCartButtons[i]
-                button.addEventListener('click', addToCartClicked)
+                addToCartButtons[i].addEventListener('click', addToCartClicked);
             }
 
-            document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+            document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked);
         }
 
         function purchaseClicked() {
-            alert('Thank you for your purchase')
-            var cartItems = document.getElementsByClassName('cart-items')[0]
+            alert('Thank you for your purchase');
+            var cartItems = document.getElementsByClassName('cart-items')[0];
             while (cartItems.hasChildNodes()) {
-                cartItems.removeChild(cartItems.firstChild)
+                cartItems.removeChild(cartItems.firstChild);
             }
-            updateCartTotal()
+            updateCartTotal();
         }
 
         function removeCartItem(event) {
-            var buttonClicked = event.target
-            buttonClicked.parentElement.parentElement.remove()
-            updateCartTotal()
+            var buttonClicked = event.target;
+            buttonClicked.closest('.cart-row').remove();
+            updateCartTotal();
         }
 
         function quantityChanged(event) {
-            var input = event.target
+            var input = event.target;
             if (isNaN(input.value) || input.value <= 0) {
-                input.value = 1
+                input.value = 1;
             }
-            updateCartTotal()
+            updateCartTotal();
         }
 
         function addToCartClicked(event) {
-            var button = event.target
-            var shopItem = button.parentElement.parentElement
-            var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
-            var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-            var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
-            var id = shopItem.querySelector('.shop-item-id').innerText;
+            var button = event.target;
+            var shopItem = button.closest('.shop-item');
+            var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText;
+            var priceText = shopItem.getElementsByClassName('shop-item-price')[0].innerText;
+            var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src;
 
+            // Extract just the number with $ sign
+            var price = '$' + parseFloat(priceText.replace('Price:', '').replace('$', '').trim());
 
-
-
-            addItemToCart(title, price, imageSrc)
-            updateCartTotal()
+            addItemToCart(title, price, imageSrc);
+            updateCartTotal();
         }
 
         function addItemToCart(title, price, imageSrc) {
-            var cartRow = document.createElement('div')
-            cartRow.classList.add('cart-row')
-            var cartItems = document.getElementsByClassName('cart-items')[0]
-            var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+            var cartRow = document.createElement('div');
+            cartRow.classList.add('cart-row');
+            var cartItems = document.getElementsByClassName('cart-items')[0];
+            var cartItemNames = cartItems.getElementsByClassName('cart-item-title');
+
             for (var i = 0; i < cartItemNames.length; i++) {
-                if (cartItemNames[i].innerText == title) {
-                    alert('This item is already added to the cart')
-                    return
+                if (cartItemNames[i].innerText === title) {
+                    alert('This item is already added to the cart');
+                    return;
                 }
             }
+
             var cartRowContents = `
-        <div class="cart-item cart-column">
-            <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
-            <span class="cart-item-title">${title}</span>
-        </div>
-        <span class="cart-price cart-column">${price}</span>
-        <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1">
-            <button class="btn btn-danger" type="button">REMOVE</button>
-        </div>`
-            cartRow.innerHTML = cartRowContents
-            cartItems.append(cartRow)
-            cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
-            cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+                <div class="cart-item cart-column">
+                    <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
+                    <span class="cart-item-title">${title}</span>
+                </div>
+                <span class="cart-price cart-column">${price}</span>
+                <div class="cart-quantity cart-column">
+                    <input class="cart-quantity-input" type="number" value="1">
+                    <button class="btn btn-danger" type="button">REMOVE</button>
+                </div>
+            `;
+            cartRow.innerHTML = cartRowContents;
+            cartItems.append(cartRow);
+
+            cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
+            cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
         }
 
         function updateCartTotal() {
-            var button = event.target
-            var shopItem = button.parentElement.parentElement
-            var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
             var cartItemContainer = document.getElementsByClassName('cart-items')[0];
             var cartRows = cartItemContainer.getElementsByClassName('cart-row');
             var total = 0;
@@ -223,20 +726,31 @@
                 var cartRow = cartRows[i];
                 var priceElement = cartRow.getElementsByClassName('cart-price')[0];
                 var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0];
+
+                // Price string to number
                 var price = parseFloat(priceElement.innerText.replace('$', '').trim());
-                var quantity = quantityElement.value;
+                var quantity = parseInt(quantityElement.value);
 
                 if (!isNaN(price) && !isNaN(quantity)) {
                     total += price * quantity;
                 }
             }
 
-
             total = Math.round(total * 100) / 100;
-            document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total;
+
+
+            var cartTotalDiv = document.getElementsByClassName('cart-total-price')[0];
+            if (!cartTotalDiv) {
+                var totalDiv = document.createElement('span');
+                totalDiv.classList.add('cart-total-price');
+                totalDiv.innerText = '$' + total;
+                document.querySelector('.cart-total').appendChild(totalDiv);
+            } else {
+                cartTotalDiv.innerText = '$' + total;
+            }
         }
-
-
     </script>
+
+</body>
 
 </html>
